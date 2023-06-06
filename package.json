@@ -1,5 +1,5 @@
 {
-  "name": "@Silent-Watcher/cli-doc-master",
+  "name": "cli-doc-master",
   "author": {
     "name": "silent-watcher"
   },
@@ -17,9 +17,7 @@
   },
   "dependencies": {
     "chalk": "^5.2.0",
-    "chalk-animation": "^2.0.3",
     "figlet": "^1.6.0",
-    "gradient-string": "^2.0.2",
     "inquirer": "^9.2.6",
     "nanospinner": "^1.1.0"
   },
