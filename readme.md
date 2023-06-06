@@ -25,7 +25,7 @@ CLIDocMaster is a command-line interface (CLI) application written in Node.js th
 
 ## Preview
 
-<img src=''>
+<img src='https://github.com/Silent-Watcher/CLIDocMaster/blob/master/demo.gif'>
 
 ## Prerequisites
 
