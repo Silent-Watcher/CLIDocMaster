@@ -1,15 +1,4 @@
-'use strict';
-import fs from 'node:fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-import { isTheFileGenerated } from './helpers.js';
 
-function createContributionFile() {
-  let processResult ;
-  const fileName = 'CONTRIBUTING.md';
-  let contributionTemplate = `
     # Contribution Guidelines
   
     ### Read the documentation: 
@@ -34,16 +23,6 @@ function createContributionFile() {
      When you are ready to contribute your changes back to the main project, submit a pull request. This will allow the project maintainers to review your changes and merge them into the main project if they are deemed appropriate.
     
     ### 🤗 Be kind and respectful: 
-     Remember that you are contributing to a community project. Be respectful of others' contributions and opinions, and be open to feedback on your own work. Avoid using offensive language or engaging in personal attacks.\n
-    `;
+     Remember that you are contributing to a community project. Be respectful of others' contributions and opinions, and be open to feedback on your own work. Avoid using offensive language or engaging in personal attacks.
+
     
-  fs.writeFileSync(__dirname + `/../${fileName}`, contributionTemplate, {
-    flag: 'a',
-    encoding: 'utf-8',
-  });
-
-  processResult = isTheFileGenerated(fileName);
-  return {processResult , fileName }
-}
-
-export { createContributionFile };

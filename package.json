@@ -1,8 +1,16 @@
 {
   "name": "cli-readme-generator",
+  "author": {
+    "name": "silent-watcher"
+  },
   "private": true,
   "version": "0.0.0",
   "main": "app.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Silent-Watcher/CLIDocMaster"
+  },
   "type": "module",
   "scripts": {
 

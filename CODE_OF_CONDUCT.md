@@ -1,16 +1,4 @@
-'use strict';
-import fs from 'node:fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import { isTheFileGenerated } from './helpers.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-function createCodeOfConductFile(email = 'example@gmail.com') {
-  let processResult;
-  const fileName = 'CODE_OF_CONDUCT.md';
-  let CodeOfConductTemplate = `
       # Contributor Covenant Code of Conduct
   
       ## Our Pledge
@@ -73,7 +61,7 @@ function createCodeOfConductFile(email = 'example@gmail.com') {
   
       Instances of abusive, harassing, or otherwise unacceptable behavior may be
       reported to the community leaders responsible for enforcement at
-      ${email}.
+      ali@gmail.com.
       All complaints will be reviewed and investigated promptly and fairly.
   
       All community leaders are obligated to respect the privacy and security of the
@@ -138,16 +126,4 @@ function createCodeOfConductFile(email = 'example@gmail.com') {
   
       For answers to common questions about this code of conduct, see the FAQ at
       https://www.contributor-covenant.org/faq. Translations are available at
-      https://www.contributor-covenant.org/translations.\n`;
-
-  fs.writeFileSync(__dirname + `/../${fileName}`, CodeOfConductTemplate, {
-    flag: 'a',
-    encoding: 'utf-8',
-  });
-
-  processResult = isTheFileGenerated(fileName);
-
-  return { processResult, fileName };
-}
-
-export { createCodeOfConductFile };
+      https://www.contributor-covenant.org/translations.

@@ -3,11 +3,16 @@ import figlet from 'figlet';
 import { createSpinner } from 'nanospinner';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
-
+import { fileURLToPath } from 'url';
+import fs from 'fs';
+import path from 'path';
 import { askForAuthorEmail } from './utils/helpers.js';
 import { askForLicenseType, createLicenseFile } from './utils/license.js';
 import { createCodeOfConductFile } from './utils/codeOfConduct.js';
 import { createContributionFile } from './utils/contribution.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 function sleep(ms) {
   return new Promise((res, rej) => {
@@ -15,7 +20,7 @@ function sleep(ms) {
   });
 }
 
-function addSpinner(name, text, color) {
+function addSpinner(name, text, color = 'blue') {
   const spinner = createSpinner(name).start({
     text: text,
     color: color,
@@ -63,9 +68,10 @@ async function askForReadmeType() {
       'Code of conduct template',
       'Contributing template',
       'License file',
-      'Security policy template',
-      'Issue templates',
-      'Pull request template',
+      // 'Security policy template', coming soon !
+      // 'Issue templates',          coming soon !
+      // 'Pull request template',    coming soon !
+      'exit',
     ],
   });
   return answer;
@@ -74,14 +80,18 @@ async function askForReadmeType() {
 async function handleReadMeTypeAnswer(type) {
   if (type === 'License file') {
     let licenseType = await askForLicenseType();
-    createLicenseFile(licenseType);
+    await startCreationProcess(createLicenseFile, licenseType);
   }
   if (type === 'Code of conduct template') {
     let authorEmail = await askForAuthorEmail();
-    createCodeOfConductFile(authorEmail);
+    await startCreationProcess(createCodeOfConductFile, authorEmail);
   }
   if (type === 'Contributing template') {
-    createContributionFile();
+    await startCreationProcess(createContributionFile);
+  }
+  if (type === 'exit') {
+    console.log('Get back another time!');
+    process.exit(1);
   }
 }
 
@@ -96,3 +106,16 @@ async function init() {
 }
 
 init();
+
+async function startCreationProcess(func, param = '') {
+  let { processResult, fileName } = await func(param);
+  let spinner = addSpinner('spinner', `generating ${fileName}...`);
+  await sleep(3000);
+  if (processResult) {
+    spinner.success({ text: `${fileName} created successfully!` });
+  } else {
+    spinner.error({ text: 'something went wrong!' });
+  }
+  let readme = await askForReadmeType();
+  await handleReadMeTypeAnswer(readme.type);
+}

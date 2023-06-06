@@ -3,11 +3,13 @@ import fs from 'node:fs';
 import path from 'path';
 import inquirer from 'inquirer';
 import { fileURLToPath } from 'url';
-import { askForAuthorName } from './helpers.js';
+import { askForAuthorName, isTheFileGenerated } from './helpers.js';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function createMITLicenseFile() {
+  const outputFileName = 'LICENSE';
   let author = await askForAuthorName();
   let currentYear = new Date().getFullYear();
   let MITTemplate = `
@@ -33,16 +35,23 @@ async function createMITLicenseFile() {
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.\n
     `;
-  fs.writeFileSync(__dirname + '/../LICENSE', MITTemplate, {
+
+  fs.writeFileSync(__dirname + `/../${outputFileName}`, MITTemplate, {
     flag: 'a',
     encoding: 'utf-8',
   });
+
+  return outputFileName;
 }
 
 async function createLicenseFile(type = 'MIT') {
+  let processResult;
+  let fileName;
   if (type === 'MIT') {
-    createMITLicenseFile();
+    fileName = await createMITLicenseFile();
+    processResult = isTheFileGenerated(fileName);
   }
+  return { processResult, fileName };
 }
 
 async function askForLicenseType() {
@@ -55,4 +64,4 @@ async function askForLicenseType() {
   return answer.type;
 }
 
-export {askForLicenseType , createLicenseFile};
+export { askForLicenseType, createLicenseFile };
