@@ -3,6 +3,7 @@
   "author": {
     "name": "silent-watcher"
   },
+  "bin": "app.js",
   "version": "1.1.0",
   "main": "app.js",
   "license": "MIT",
@@ -21,5 +22,22 @@
     "gradient-string": "^2.0.2",
     "inquirer": "^9.2.6",
     "nanospinner": "^1.1.0"
-  }
+  },
+  "keywords": [
+    "CLI documentation",
+    "Readme generator",
+    "Command-line tool",
+    "Documentation automation",
+    "CLI application",
+    "Documentation management",
+    "Documentation generator",
+    "CLI readme",
+    "Command-line documentation",
+    "CLI project management",
+    "Readme authoring",
+    "Command-line interface tool",
+    "Developer productivity",
+    "Documentation efficiency",
+    "Readme enhancement"
+    ]
 }
