@@ -96,11 +96,11 @@ async function handleReadMeTypeAnswer(type) {
 }
 
 async function init() {
-  // const intro_spinner = addSpinner('intro', 'loading ...', 'blue');
-  // await sleep(2000);
-  // intro_spinner.success({ text: 'Hi and Welcome !' });
-  // showBanner();
-  // showIntroduction();
+  const intro_spinner = addSpinner('intro', 'loading ...', 'blue');
+  await sleep(2000);
+  intro_spinner.success({ text: 'Hi and Welcome !' });
+  showBanner();
+  showIntroduction();
   let readme = await askForReadmeType();
   await handleReadMeTypeAnswer(readme.type);
 }

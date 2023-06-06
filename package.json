@@ -1,9 +1,8 @@
 {
-  "name": "@Silent-Watcher/CLIDocMaster",
+  "name": "@Silent-Watcher/cli-doc-master",
   "author": {
     "name": "silent-watcher"
   },
-  "private": true,
   "version": "1.0.0",
   "main": "app.js",
   "license": "MIT",
