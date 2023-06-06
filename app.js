@@ -1,3 +1,4 @@
+#!/usr/bin/node
 'use strict';
 import figlet from 'figlet';
 import { createSpinner } from 'nanospinner';
