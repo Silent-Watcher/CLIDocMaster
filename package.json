@@ -4,7 +4,7 @@
     "name": "silent-watcher"
   },
   "bin": "app.js",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "app.js",
   "license": "MIT",
   "repository": {
@@ -39,5 +39,5 @@
     "Developer productivity",
     "Documentation efficiency",
     "Readme enhancement"
-    ]
+  ]
 }
