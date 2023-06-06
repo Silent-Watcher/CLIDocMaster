@@ -4,11 +4,10 @@ import { createSpinner } from 'nanospinner';
 import chalk from 'chalk';
 import inquirer from 'inquirer';
 
-import {askForAuthorEmail} from './utils/helpers.js';
-import {askForLicenseType, createLicenseFile } from './utils/license.js';
-import {createCodeOfConductFile } from './utils/codeOfConduct.js';
-
-
+import { askForAuthorEmail } from './utils/helpers.js';
+import { askForLicenseType, createLicenseFile } from './utils/license.js';
+import { createCodeOfConductFile } from './utils/codeOfConduct.js';
+import { createContributionFile } from './utils/contribution.js';
 
 function sleep(ms) {
   return new Promise((res, rej) => {
@@ -81,6 +80,9 @@ async function handleReadMeTypeAnswer(type) {
     let authorEmail = await askForAuthorEmail();
     createCodeOfConductFile(authorEmail);
   }
+  if (type === 'Contributing template') {
+    createContributionFile();
+  }
 }
 
 async function init() {
@@ -94,5 +96,3 @@ async function init() {
 }
 
 init();
-
-
