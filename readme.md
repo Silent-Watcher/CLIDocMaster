@@ -11,8 +11,8 @@ CLIDocMaster is a command-line interface (CLI) application written in Node.js th
 - [Features](https://github.com/Silent-Watcher/CLIDocMaster#features)
 - [preview](https://github.com/Silent-Watcher/CLIDocMaster#preview)
 - [Prerequisites](https://github.com/Silent-Watcher/CLIDocMaster#Prerequisites)
-- [Installation](https://github.com/Silent-Watcher/CLIDocMaster#Installation)
 - [usage](https://github.com/Silent-Watcher/CLIDocMaster#usage)
+- [Installation](https://github.com/Silent-Watcher/CLIDocMaster#Installation)
 - [Contributing](https://github.com/Silent-Watcher/CLIDocMaster#Contributing)
 - [Contact](https://github.com/Silent-Watcher/CLIDocMaster#Contact)
 - [License](https://github.com/Silent-Watcher/CLIDocMaster#License)
@@ -33,6 +33,14 @@ In order to run this project, you will need to have the following installed on y
 
 - nodejs
 - yarn | npm
+
+## usage
+
+To start the app, run the following command:
+
+```bash
+  npx cli-doc-master
+```
 
 ## Installation
 
@@ -56,13 +64,8 @@ git clone https://github.com/Silent-Watcher/CLIDocMaster
   yarn
 ```
 
-## usage
 
-To start the app, run the following command:
 
-```bash
- node .
-```
 
 ## Contributing
 
