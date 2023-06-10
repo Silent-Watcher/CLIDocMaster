@@ -105,7 +105,6 @@ async function init() {
   await handleReadMeTypeAnswer(readme.type);
 }
 
-init();
 
 async function startCreationProcess(func, param = '') {
   let { processResult, fileName } = await func(param);
@@ -119,3 +118,5 @@ async function startCreationProcess(func, param = '') {
   let readme = await askForReadmeType();
   await handleReadMeTypeAnswer(readme.type);
 }
+
+export default init;
