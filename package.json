@@ -1,10 +1,10 @@
 {
-  "name": "@Silent-Watcher/cli-doc-master",
+  "name": "cli-doc-master",
   "author": {
     "name": "silent-watcher"
   },
   "bin": {
-    "doc-master": "bin/index.js"
+    "cli-doc-master": "bin/index.js"
   },
   "version": "1.2.5",
   "main": "app.js",
